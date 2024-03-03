@@ -1,0 +1,3 @@
+[submodule "mwdb-core"]
+	path = mwdb-core
+	url = git@github.com:CERT-Polska/mwdb-core.git
