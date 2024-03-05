@@ -16,7 +16,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./mwdb-uploads:/app/uploades
+      - ./mwdb-uploads:/app/uploads
   mwdb-web:
     restart: on-failure
     build:
