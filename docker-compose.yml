@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:16.2
+    restart: always
+    env_file:
+      - env/postgres-vars.env
+    volumes:
+      - ./mwdb-postgres:/var/lib/postgresql/data
+  mwdb:
+    restart: on-failure
+    build:
+      context: ./mwdb-core
+      dockerfile: deploy/docker/Dockerfile
+    env_file:
+      - env/mwdb-vars.env
+    depends_on:
+      - postgres
+    volumes:
+      - ./mwdb-uploads:/app/uploades
+  mwdb-web:
+    restart: on-failure
+    build:
+      context: ./mwdb-core
+      dockerfile: deploy/docker/Dockerfile-web
+    depends_on:
+      - mwdb
+    ports:
+      - "127.0.0.1:80:80"
