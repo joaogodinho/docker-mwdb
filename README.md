@@ -12,6 +12,9 @@ MWDB_ADMIN_EMAIL=admin@localhost
 MWDB_ADMIN_PASSWORD=admin
 MWDB_BASE_URL=http://127.0.0.1
 UWSGI_PROCESSES=5
+
+# To enable plugins:
+# MWDB_PLUGINS=<plugin name>
 ```
 
 ```
